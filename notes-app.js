@@ -1,5 +1,12 @@
 //DOM - Document Object model
 
-const p = document.querySelector('p')
+//query and remove
+//const p = document.querySelector('p')
+//p.remove()
 
-console.log(p)
+// Query all and remove
+const ps = document.querySelectorAll('p')
+
+ps.forEach(function (p) {
+    p.remove()
+})
