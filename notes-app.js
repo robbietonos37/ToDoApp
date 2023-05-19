@@ -29,6 +29,24 @@ window.addEventListener('storage', function (e) {
     }
 })
 
+// const now = moment()
+// now.subtract(1, 'week').subtract(20, 'days')
+// console.log(now.format('MMMM Do, YYYY'))
+// // November 3rd, 2023
+// console.log(now.fromNow())
+// const nowTimeStamp = now.valueOf()
+// console.log(nowTimeStamp)
+
+// console.log(moment(nowTimeStamp).toString())
+
+const birthday = moment()
+birthday.set('year', 1997)
+birthday.set('month', 6)
+birthday.set('date', 2)
+//birthday.year(1997).month(7).date(2)
+console.log(birthday.format('MMM D, YYYY'))
+
+/*
 // Unix Epoch - January 1st 1970 00:00:00
 // Positive for after this date
 // Negative for after this date
@@ -57,3 +75,5 @@ if (timeInPast.getTime() > timeInPast2.getTime()) {
 else {
     console.log(timeInPast2.toString())
 }
+
+*/
