@@ -3,11 +3,7 @@ const getSavedNotes = () => {
 
     const notesJSON = localStorage.getItem('notes')
 
-    if (notesJSON !== null) {
-        return JSON.parse(notesJSON)
-    } else {
-        return []
-    }
+    return notesJSON !== null ? JSON.parse(notesJSON) : []
 
 }
 
@@ -25,7 +21,7 @@ const removeNote = (id) => {
 }
 
 // Generate the DOM structure for a note
-const generateNoteDOM =  (note) => {
+const generateNoteDOM = (note) => {
     const noteEl = document.createElement('div')
     const textEl = document.createElement('a')
     const button = document.createElement('button')
@@ -57,7 +53,7 @@ const generateNoteDOM =  (note) => {
 // Sort your notes by one of three ways
 const sortNotes = (notes, sortBy) => {
     if (sortBy === 'byEdited') {
-        return notes.sort( (a, b) => {
+        return notes.sort((a, b) => {
             if (a.updatedAt > b.updatedAt) {
                 return -1
             }
@@ -109,14 +105,14 @@ const renderNotes = (notes, filters) => {
 
     document.querySelector('#notes').innerHTML = ''
 
-    filteredNotes.forEach( (note) => {
+    filteredNotes.forEach((note) => {
         const noteEl = generateNoteDOM(note)
         document.querySelector('#notes').appendChild(noteEl)
     })
 }
 
 //Generate the text for when the note was last edited
-const generateLastEdited =  (timestamp) => {
+const generateLastEdited = (timestamp) => {
     return `Last edited ${moment(timestamp).fromNow()}`
 
 }
